@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laçador</title>
+<link rel="icon" href="img/favicon.png">
+<link rel="stylesheet" href="app.css">
+<script src="cedo.js"></script>
+</head>
+<body>
+
+<!-- Tela de inicialização -->
+<div id="inicio" class="inicio" role="status" aria-live="polite">
+  <div class="inicio-quadro" role="img" aria-label="Laçador: estátua do Laçador com o laço">
+    <div class="inicio-espaco"></div>
+    <p class="inicio-sub">SISTEMA DE GERENCIAMENTO DE TOKENS</p>
+    <div class="inicio-barra" role="progressbar" aria-label="Carregando o sistema" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="inicio-barra">
+      <div class="inicio-barra-cheio" id="inicio-cheio"><div class="inicio-brilho"></div></div>
+    </div>
+    <div class="inicio-rodape">
+      <span>Criado por 3S Leon, S2 Dalssasso</span>
+      <span class="inicio-etapa" id="inicio-etapa">Carregando o sistema...</span>
+      <span class="inicio-versao" id="inicio-versao">v1.2.0</span>
+    </div>
+  </div>
+</div>
+
+<!-- Aplicativo -->
+<div id="app" class="app" hidden>
+  <nav class="lateral" id="lateral" aria-label="Seções">
+    <div class="luz" aria-hidden="true"></div>
+    <div class="pilula" id="pilula" aria-hidden="true"></div>
+
+    <div class="marca">
+      <img class="marca-icone" src="img/icone.png" alt="">
+      <div class="marca-texto">
+        <img class="marca-nome" src="img/nome.png" alt="Laçador">
+        <span>Gerenciamento de tokens</span>
+      </div>
+    </div>
+
+    <label class="busca">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg>
+      <input type="search" id="busca" placeholder="Buscar" aria-label="Buscar nesta página">
+    </label>
+
+    <div id="nav" class="nav"></div>
+
+    <div class="lateral-espaco"></div>
+
+    <div class="pc" id="pc"></div>
+    <div class="credito"><span>Criado por 3S Leon, S2 Dalssasso</span><span id="versao">v1.2.0</span></div>
+  </nav>
+
+  <div class="palco">
+    <header class="topo">
+      <div class="topo-titulo">
+        <h1 id="titulo">Sistemas</h1>
+        <p id="subtitulo"></p>
+      </div>
+      <div class="topo-acoes">
+        <span class="demo" id="demo" hidden>Demonstração: nada é instalado</span>
+        <button class="botao" id="verificar" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"></path><path d="M20 5v6h-6"></path></svg>
+          <span id="verificar-texto">Verificar tudo</span>
+        </button>
+      </div>
+    </header>
+    <main class="conteudo" id="conteudo" tabindex="-1"></main>
+  </div>
+</div>
+
+<!-- Folha (confirmações e andamento) -->
+<div id="folha-fundo" class="folha-fundo" hidden>
+  <div class="folha" id="folha" role="dialog" aria-modal="true" aria-labelledby="folha-titulo"></div>
+</div>
+
+<!-- Aviso rápido -->
+<div id="brinde" class="brinde" role="status" aria-live="polite" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>

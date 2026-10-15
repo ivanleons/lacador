@@ -1,0 +1,246 @@
+{
+ "coletadoEm": "2026-10-06T12:00:00",
+ "computador": "PC-TESTE",
+ "usuario": "usuario",
+ "dominio": "PC-TESTE",
+ "admin": true,
+ "windows": {
+  "nome": "Windows 11 Home Single Language",
+  "versao": "25H2",
+  "build": "26200.9457",
+  "arquitetura": "x64"
+ },
+ "programas": [
+  {
+   "nome": "Assinador Digital do COMAER versão 2.0.12",
+   "versao": "2.0.12",
+   "fabricante": "CCA-SJ",
+   "pasta": "C:\\Program Files (x86)\\Assinador Digital do COMAER\\",
+   "chave": "{6CC54A28-5953-482E-9A6B-0A570FCAD6E8}_is1"
+  },
+  {
+   "nome": "Giesecke & Devrient GmbH StarSign CUT",
+   "versao": "1.7.17.0",
+   "fabricante": "Giesecke & Devrient GmbH",
+   "pasta": "C:\\Program Files (x86)\\G&D\\",
+   "chave": "x"
+  },
+  {
+   "nome": "Mozilla Firefox ESR (x86 pt-BR)",
+   "versao": "153.3.0",
+   "fabricante": "Mozilla",
+   "pasta": "C:\\Program Files (x86)\\Mozilla Firefox",
+   "chave": "x"
+  },
+  {
+   "nome": "SafeSign 64-bits",
+   "versao": "3.0.97",
+   "fabricante": "A.E.T. Europe B.V.",
+   "pasta": "",
+   "chave": "x"
+  },
+  {
+   "nome": "Adobe Acrobat (64-bit)",
+   "versao": "25.001.20997",
+   "fabricante": "Adobe",
+   "pasta": "",
+   "chave": "x"
+  }
+ ],
+ "arquivos": {
+  "%SystemRoot%\\System32\\aetpkss1.dll": true,
+  "%SystemRoot%\\System32\\DXSafePKCS11.dll": false
+ },
+ "servicos": {
+  "SCardSvr": {
+   "estado": "Running",
+   "inicio": "Automatic"
+  },
+  "CertPropSvc": {
+   "estado": "Running",
+   "inicio": "Automatic"
+  }
+ },
+ "dispositivos": [
+  {
+   "nome": "Giesecke & Devrient GmbH StarSign CUT 0",
+   "id": "SWD\\SCDEVICEENUM\\1_GIESECKE_&_DEVRIENT_GMBH_STARSIGN_CUT_0",
+   "classe": "SoftwareDevice",
+   "status": "OK"
+  },
+  {
+   "nome": "G&D StarSign CUT",
+   "id": "USB\\VID_1059&PID_0017\\01140712030920",
+   "classe": "SmartCardReader",
+   "status": "OK"
+  }
+ ],
+ "certificados": [
+  {
+   "titular": "FULANO DE TAL",
+   "emissor": "Autoridade Certificadora de Defesa",
+   "inicio": "2023-10-19T12:00:00",
+   "fim": "2026-10-18T12:00:00",
+   "chavePrivada": true,
+   "autoassinado": false,
+   "id": "A1B2C3D4"
+  },
+  {
+   "titular": "BELTRANO DA SILVA",
+   "emissor": "Autoridade Certificadora de Defesa",
+   "inicio": "2023-10-04T12:00:00",
+   "fim": "2026-10-03T12:00:00",
+   "chavePrivada": true,
+   "autoassinado": false,
+   "id": "A1B2C3D4"
+  }
+ ],
+ "assinador": {
+  "pasta": "C:\\Program Files (x86)\\Assinador Digital do COMAER",
+  "jar": true,
+  "bats": [
+   {
+    "nome": "assinador_comaer.bat",
+    "existe": true,
+    "usaWmic": true,
+    "corrigido": false
+   },
+   {
+    "nome": "assinador_standalone.bat",
+    "existe": true,
+    "usaWmic": true,
+    "corrigido": false
+   }
+  ],
+  "ligacao64": "C:\\Program Files (x86)\\Assinador Digital do COMAER\\assinador_comaer.json",
+  "ligacao32": "C:\\Program Files (x86)\\Assinador Digital do COMAER\\assinador_comaer.json",
+  "manifesto": true,
+  "atalho": true,
+  "configUsuario": {
+   "existe": true,
+   "tokens": []
+  }
+ },
+ "firefox": {
+  "instalacoes": [
+   {
+    "pasta": "C:\\Program Files (x86)\\Mozilla Firefox",
+    "exe": "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe",
+    "versao": "153.3.0",
+    "canal": "esr",
+    "arquitetura": "x86"
+   }
+  ],
+  "politica": {
+   "origem": "",
+   "modo": "",
+   "url": "",
+   "assinaturaFraca": false,
+   "arquivoExiste": false,
+   "prefsAtic": false
+  },
+  "perfis": [
+   {
+    "nome": "9t18me82.default",
+    "pasta": "C:\\Users\\usuario\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\9t18me82.default",
+    "edicao": "comum",
+    "emUso": false,
+    "aberto": true,
+    "extensao": null,
+    "fixada": null
+   },
+   {
+    "nome": "ttdw9ti7.default-esr",
+    "pasta": "C:\\Users\\usuario\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\ttdw9ti7.default-esr",
+    "edicao": "esr",
+    "emUso": true,
+    "aberto": true,
+    "extensao": {
+     "versao": "2.0.9",
+     "ativa": true,
+     "bloqueada": false,
+     "desativada": false
+    },
+    "fixada": true
+   }
+  ]
+ },
+ "java": {
+  "jres": [],
+  "jnlpComando": "",
+  "jnlpEscolhaUsuario": "",
+  "atualizacaoDesativada": false
+ },
+ "proxy": {
+  "ativo": false,
+  "servidor": "",
+  "pac": "",
+  "excecoes": ""
+ },
+ "wmic": {
+  "x64": true,
+  "x86": false
+ },
+ "pastaPacotes": "E:\\Lacador\\pacotes",
+ "pacotes": {
+  "1.SafeSignIC3097-x64-win-admin.exe": {
+   "existe": true,
+   "tamanho": 10431872
+  },
+  "1.SafeSignIC3097-x86-win-admin.exe": {
+   "existe": true,
+   "tamanho": 7100488
+  },
+  "2.GDsetupStarsignCUTx64.exe": {
+   "existe": true,
+   "tamanho": 4663863
+  },
+  "2.GDsetupStarsignCUTx32.exe": {
+   "existe": true,
+   "tamanho": 4663863
+  },
+  "Instalador DXSafe Middleware - 1.0.30.exe": {
+   "existe": true,
+   "tamanho": 17599077
+  },
+  "Java1.7_51.exe": {
+   "existe": true,
+   "tamanho": 29141928
+  },
+  "jre-8u91-windows-i586.exe": {
+   "existe": false,
+   "tamanho": 0
+  },
+  "assinador_setup.exe": {
+   "existe": true,
+   "tamanho": 105901052
+  },
+  "Firefox Setup 140.17.0esr.exe": {
+   "existe": true,
+   "tamanho": 73411008
+  },
+  "assinador_digital_comaer-2.0.12-an+fx.xpi": {
+   "existe": true,
+   "tamanho": 848790
+  },
+  "AdbeRdr11000_pt_BR_INSTALADOR.exe": {
+   "existe": true,
+   "tamanho": 38958736
+  },
+  "AdbeRdrUpd11023_UPDATE.msp": {
+   "existe": true,
+   "tamanho": 48394240
+  }
+ },
+ "navegadores": {
+  "edge": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "chrome": ""
+ },
+ "agente": {
+  "tarefa": true,
+  "instalado": true,
+  "pasta": "C:\\Program Files\\Lacador",
+  "versao": "1.0.0"
+ },
+ "erros": []
+}

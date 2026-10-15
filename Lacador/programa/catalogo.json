@@ -1,0 +1,479 @@
+{
+  "versao": "1.2.0",
+  "atualizadoEm": "2026-10-14",
+  "itens": [
+    {
+      "id": "safesign",
+      "nome": "SafeSign",
+      "descricao": "Gerenciador do token GD Burti (StarSign)",
+      "categoria": "driver",
+      "icone": "token",
+      "versao": "3.0.97",
+      "pacotes": [
+        {
+          "arquitetura": "x64",
+          "tipo": "exe",
+          "arquivo": "1.SafeSignIC3097-x64-win-admin.exe",
+          "tamanho": 10431872,
+          "sha256": "8CF826F5793231052E301E0722D6E6D5E930F111800AAEA4753BCEBD762B79CD",
+          "crc32": "8B3F37B9",
+          "argumentos": "/s /w /v\"/qn /norestart\"",
+          "argumentosReinstalar": "/s /w /v\"REINSTALL=ALL REINSTALLMODE=vamus /qn /norestart\"",
+          "registroMsi": true
+        },
+        {
+          "arquitetura": "x86",
+          "tipo": "exe",
+          "arquivo": "1.SafeSignIC3097-x86-win-admin.exe",
+          "tamanho": 7100488,
+          "sha256": "494A30A2AB1A6ACEAF5FF9FC9C2FBA7DE3911EC62F05AA00D9EE2893789056F6",
+          "crc32": "80D40ABF",
+          "argumentos": "/s /w /v\"/qn /norestart\"",
+          "argumentosReinstalar": "/s /w /v\"REINSTALL=ALL REINSTALLMODE=vamus /qn /norestart\"",
+          "registroMsi": true
+        }
+      ],
+      "detectar": {
+        "programa": "^SafeSign( 64-bits)?$",
+        "fabricante": "A\\.E\\.T",
+        "versaoMinima": "3.0.97",
+        "arquivos": [
+          "%SystemRoot%\\System32\\aetpkss1.dll"
+        ]
+      },
+      "depois": [
+        "servico-smartcard"
+      ],
+      "tempoMaxSeg": 900,
+      "avisos": [],
+      "reinstalar": true,
+      "desinstalar": {
+        "tipo": "msi"
+      },
+      "abrir": "token:gd-starsign"
+    },
+    {
+      "id": "starsign",
+      "nome": "Driver StarSign CUT",
+      "descricao": "Driver do token GD Burti (StarSign)",
+      "categoria": "driver",
+      "icone": "token",
+      "versao": "1.7.17",
+      "pacotes": [
+        {
+          "arquitetura": "x64",
+          "tipo": "exe",
+          "arquivo": "2.GDsetupStarsignCUTx64.exe",
+          "tamanho": 4663863,
+          "sha256": "DCEF68E5339E0689C2D58AAEA3F4143094AFE3385C97AB1D7AEB0FB1DA6EB3D3",
+          "crc32": "6B639E93",
+          "argumentos": "/s /w /v\"/qn /norestart\"",
+          "argumentosReinstalar": "/s /w /v\"REINSTALL=ALL REINSTALLMODE=vamus /qn /norestart\"",
+          "registroMsi": true
+        },
+        {
+          "arquitetura": "x86",
+          "tipo": "exe",
+          "arquivo": "2.GDsetupStarsignCUTx32.exe",
+          "tamanho": 4663863,
+          "sha256": "DCEF68E5339E0689C2D58AAEA3F4143094AFE3385C97AB1D7AEB0FB1DA6EB3D3",
+          "crc32": "6B639E93",
+          "argumentos": "/s /w /v\"/qn /norestart\"",
+          "argumentosReinstalar": "/s /w /v\"REINSTALL=ALL REINSTALLMODE=vamus /qn /norestart\"",
+          "registroMsi": true
+        }
+      ],
+      "detectar": {
+        "programa": "StarSign CUT",
+        "fabricante": "Giesecke",
+        "versaoMinima": "1.7.17"
+      },
+      "depois": [
+        "servico-smartcard"
+      ],
+      "tempoMaxSeg": 900,
+      "avisos": [],
+      "reinstalar": true,
+      "desinstalar": {
+        "tipo": "msi"
+      }
+    },
+    {
+      "id": "dxsafe",
+      "nome": "DXSafe Middleware",
+      "descricao": "Driver e gerenciador do token Dexon (DXToken)",
+      "categoria": "driver",
+      "icone": "token",
+      "versao": "1.0.30",
+      "pacotes": [
+        {
+          "tipo": "exe",
+          "arquivo": "Instalador DXSafe Middleware - 1.0.30.exe",
+          "tamanho": 17599077,
+          "sha256": "09FF95BBA6ABDC56505A2AAEB2B37FCFAE9A9438B9A5B751AC0DF1E469C4D403",
+          "crc32": "D90D9D5F",
+          "argumentos": "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-"
+        }
+      ],
+      "detectar": {
+        "programa": "^DXSafe Middleware",
+        "chave": "{8135958A-27DD-4BBA-9637-DCFC7EEF5FF0}_is1",
+        "versaoMinima": "1.0.30",
+        "arquivos": [
+          "%SystemRoot%\\System32\\DXSafePKCS11.dll"
+        ]
+      },
+      "depois": [
+        "servico-smartcard"
+      ],
+      "tempoMaxSeg": 900,
+      "avisos": [
+        "Deixe o token Dexon desconectado durante a instalação e conecte só depois."
+      ],
+      "reinstalar": true,
+      "desinstalar": {
+        "tipo": "inno"
+      },
+      "abrir": "token:dexon-dxtoken"
+    },
+    {
+      "id": "java7",
+      "nome": "Java 7 Update 51",
+      "descricao": "Versão antiga do Java, citada nas observações da base",
+      "categoria": "programa",
+      "icone": "java",
+      "versao": "7.0.510",
+      "legado": true,
+      "pacotes": [
+        {
+          "tipo": "exe",
+          "arquivo": "Java1.7_51.exe",
+          "tamanho": 29141928,
+          "sha256": "5F6E2A00E2E720CBE012353BC0C86F9426621EE6CE7C1F47D3181546F1EFBBBC",
+          "crc32": "2915F228",
+          "argumentos": "/s"
+        }
+      ],
+      "detectar": {
+        "programa": "^Java 7 Update 51$"
+      },
+      "depois": [
+        "java-sem-atualizacao",
+        "associar-jnlp"
+      ],
+      "tempoMaxSeg": 900,
+      "avisos": [
+        "Java de 2014, sem correções de segurança. Instale só nas máquinas em que algum sistema realmente pedir."
+      ],
+      "desinstalar": {
+        "tipo": "msi"
+      }
+    },
+    {
+      "id": "java8",
+      "nome": "Java 8 Update 91",
+      "descricao": "Exigido pelo SIAFI Operacional (tela preta)",
+      "categoria": "programa",
+      "icone": "java",
+      "versao": "8.0.910",
+      "pacotes": [
+        {
+          "tipo": "exe",
+          "arquivo": "jre-8u91-windows-i586.exe",
+          "tamanho": 51071552,
+          "sha256": "F34168660E16B4AB8DC87D4C14C5515CE748B54D5A38FC7A2854FFB5C0BDD346",
+          "crc32": "821A33C1",
+          "argumentos": "/s"
+        }
+      ],
+      "detectar": {
+        "programa": "^Java 8 Update 91$"
+      },
+      "depois": [
+        "java-sem-atualizacao",
+        "associar-jnlp"
+      ],
+      "tempoMaxSeg": 900,
+      "avisos": [
+        "Versão fixa exigida pelo SIAFI. O Laçador desliga a atualização automática do Java para ela não ser trocada."
+      ],
+      "desinstalar": {
+        "tipo": "msi"
+      }
+    },
+    {
+      "id": "assinador",
+      "nome": "Assinador do COMAER",
+      "descricao": "Programa de assinatura do SIGADAER e de PDF (CCA-SJ)",
+      "categoria": "programa",
+      "icone": "caneta",
+      "versao": "2.0.12",
+      "pacotes": [
+        {
+          "tipo": "exe",
+          "arquivo": "assinador_setup.exe",
+          "tamanho": 105901052,
+          "sha256": "B597A57B7970ACEC1AEB589BDC4E79CD6A4AB90D3087644667AD16DF8BCF8CDD",
+          "crc32": "D056D941",
+          "argumentos": "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /TASKS=\"desktopicon\""
+        }
+      ],
+      "detectar": {
+        "programa": "^Assinador Digital do COMAER",
+        "chave": "{6CC54A28-5953-482E-9A6B-0A570FCAD6E8}_is1",
+        "versaoMinima": "2.0.12"
+      },
+      "depois": [
+        "corrigir-wmic",
+        "ligacao-firefox"
+      ],
+      "tempoMaxSeg": 1200,
+      "avisos": [],
+      "reinstalar": true,
+      "desinstalar": {
+        "tipo": "inno"
+      },
+      "abrir": "assinador"
+    },
+    {
+      "id": "firefox-esr",
+      "nome": "Firefox",
+      "descricao": "Developer Edition (padrão da base) ou ESR (reserva), para o SIGADAER",
+      "categoria": "programa",
+      "icone": "globo",
+      "versao": "140.17.0",
+      "pacotes": [
+        {
+          "tipo": "exe",
+          "arquivo": "Firefox Setup 140.17.0esr.exe",
+          "tamanho": 73411008,
+          "sha256": "ADB74BD2A1ED81C088317CBE62E772B4AF8AE4878468D447190169C56231364E",
+          "crc32": "3C601122",
+          "argumentos": "/S /PreventRebootRequired=true /TaskbarShortcut=false"
+        }
+      ],
+      "detectar": {},
+      "depois": [],
+      "tempoMaxSeg": 900,
+      "avisos": [
+        "Feche o Firefox antes de instalar."
+      ],
+      "reinstalar": true,
+      "desinstalar": {
+        "tipo": "nsis",
+        "programa": "^Mozilla Firefox.*ESR"
+      },
+      "abrir": "firefox"
+    },
+    {
+      "id": "extensao-firefox",
+      "nome": "Extensão do assinador",
+      "descricao": "Liga o SIGADAER (no Firefox) ao assinador",
+      "categoria": "programa",
+      "icone": "extensao",
+      "versao": "2.0.12",
+      "depende": [
+        "firefox-esr"
+      ],
+      "extensaoId": "assinador_comaer@fab.mil.br",
+      "pacotes": [
+        {
+          "tipo": "arquivo",
+          "arquivo": "assinador_digital_comaer-2.0.12-an+fx.xpi",
+          "tamanho": 848790,
+          "sha256": "07CC9B5321712CC74D9D39BDBEEE7CDF2A976B2C698C77AB51E78289A4F4B613",
+          "crc32": "4D688C39"
+        }
+      ],
+      "detectar": {},
+      "depois": [
+        "politica-firefox"
+      ],
+      "tempoMaxSeg": 120,
+      "avisos": [
+        "Depois de instalar, abra o Firefox uma vez: a extensão entra sozinha, já com o botão fixado na barra."
+      ],
+      "desinstalar": {
+        "tipo": "politica"
+      }
+    },
+    {
+      "id": "adobe-xi",
+      "nome": "Adobe Reader XI",
+      "descricao": "Usado para assinar PDF dentro do Adobe (procedimento da ATIC)",
+      "categoria": "programa",
+      "icone": "documento",
+      "versao": "11.0.23",
+      "opcional": true,
+      "legado": true,
+      "pacotes": [
+        {
+          "tipo": "exe",
+          "arquivo": "AdbeRdr11000_pt_BR_INSTALADOR.exe",
+          "tamanho": 38958736,
+          "sha256": "810456972280DFAB4EF859621DA2248575A806F7C8461F94A8B49177209F3234",
+          "crc32": "B1F27824",
+          "argumentos": "/sAll /rs /msi EULA_ACCEPT=YES"
+        },
+        {
+          "tipo": "msp",
+          "arquivo": "AdbeRdrUpd11023_UPDATE.msp",
+          "tamanho": 48394240,
+          "sha256": "AD11346CD51F9509A875C2DF8FD2FDFDB16B2DD555705471A178F0BA1151F655",
+          "crc32": "6A88F448"
+        }
+      ],
+      "detectar": {
+        "programa": "^Adobe Reader XI",
+        "versaoMinima": "11.0.23"
+      },
+      "conflito": {
+        "programa": "^Adobe Acrobat",
+        "mensagem": "Já existe outro Adobe Acrobat/Reader neste computador. O procedimento da ATIC manda desinstalar antes de instalar o Reader XI."
+      },
+      "depois": [],
+      "tempoMaxSeg": 1500,
+      "avisos": [
+        "O Adobe Reader XI saiu de suporte em 2017. Instale só em quem precisa assinar PDF pelo Adobe."
+      ],
+      "desinstalar": {
+        "tipo": "msi"
+      },
+      "abrir": "adobe-xi"
+    },
+    {
+      "id": "servico-smartcard",
+      "nome": "Serviço de cartão inteligente",
+      "descricao": "Serviço que faz o Windows conversar com os tokens",
+      "categoria": "ambiente",
+      "icone": "engrenagem",
+      "versao": "",
+      "pacotes": [],
+      "detectar": {},
+      "depois": [
+        "servico-smartcard"
+      ],
+      "tempoMaxSeg": 60,
+      "avisos": []
+    }
+  ],
+  "tokens": [
+    {
+      "id": "gd-starsign",
+      "nome": "GD Burti (StarSign CUT)",
+      "fabricante": "Giesecke & Devrient",
+      "descricao": "Token USB entregue como “GD Burti (ComprasNET)”",
+      "leitor": "StarSign|Giesecke|G&D",
+      "hardware": "VID_1059",
+      "itens": [
+        "safesign",
+        "starsign"
+      ],
+      "administrador": {
+        "nome": "Administração de token (SafeSign)",
+        "caminhos": [
+          "%ProgramFiles%\\A.E.T. Europe B.V\\SafeSign\\tokenadmin.exe",
+          "%ProgramFiles(x86)%\\A.E.T. Europe B.V\\SafeSign\\tokenadmin.exe"
+        ]
+      },
+      "metodoAssinador": "Alfa (se não reconhecer, Bravo)",
+      "pkcs11": "c:/windows/system32/aetpkss1.dll"
+    },
+    {
+      "id": "dexon-dxtoken",
+      "nome": "DXToken (Dexon)",
+      "fabricante": "Dexon",
+      "descricao": "Token USB com “DX token” escrito no corpo",
+      "leitor": "Dexon|DX ?Token|DX ?Safe",
+      "hardware": "",
+      "itens": [
+        "dxsafe"
+      ],
+      "administrador": {
+        "nome": "DXSafe Administrador do Token",
+        "caminhos": [
+          "%ProgramFiles%\\DXSafe Middleware\\DXSafeAdmin.exe",
+          "%ProgramFiles(x86)%\\DXSafe Middleware\\DXSafeAdmin.exe"
+        ]
+      },
+      "metodoAssinador": "Alfa com o ajuste do Laçador, ou Bravo",
+      "pkcs11": "c:/windows/system32/DXSafePKCS11.dll",
+      "assinadorToken": "dexon"
+    }
+  ],
+  "sistemas": [
+    {
+      "id": "sigadaer",
+      "nome": "SIGADAER",
+      "descricao": "Assinatura digital de documentos pelo Firefox",
+      "icone": "caneta",
+      "requer": [
+        "@token",
+        "assinador",
+        "firefox-esr",
+        "extensao-firefox"
+      ],
+      "opcionais": [],
+      "site": "sigadaer",
+      "navegador": "firefox",
+      "tutorial": "sigadaer"
+    },
+    {
+      "id": "assinar-pdf",
+      "nome": "Assinar PDF",
+      "descricao": "Assinatura de arquivos PDF pelo Assinador do COMAER",
+      "icone": "documento",
+      "requer": [
+        "@token",
+        "assinador"
+      ],
+      "opcionais": [],
+      "programa": "assinador",
+      "tutorial": "assinar-pdf"
+    },
+    {
+      "id": "siafi",
+      "nome": "SIAFI",
+      "descricao": "SIAFI Web e SIAFI Operacional (tela preta)",
+      "icone": "terminal",
+      "requer": [
+        "@token",
+        "java8"
+      ],
+      "opcionais": [
+        "java7"
+      ],
+      "verificarProxy": true,
+      "site": "siafi",
+      "navegador": "moderno",
+      "tutorial": "siafi"
+    },
+    {
+      "id": "compras",
+      "nome": "Compras.gov.br",
+      "descricao": "Acesso com o certificado do token",
+      "icone": "carrinho",
+      "requer": [
+        "@token"
+      ],
+      "opcionais": [],
+      "site": "compras",
+      "navegador": "moderno",
+      "tutorial": "compras"
+    },
+    {
+      "id": "adobe",
+      "nome": "Assinar PDF no Adobe",
+      "descricao": "Assinatura visível dentro do Adobe Reader XI",
+      "icone": "selo",
+      "opcional": true,
+      "requer": [
+        "@token",
+        "adobe-xi"
+      ],
+      "opcionais": [],
+      "programa": "adobe-xi",
+      "tutorial": "adobe"
+    }
+  ]
+}

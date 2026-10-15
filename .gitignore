@@ -1,0 +1,9 @@
+saida/
+pacotes/
+*.res.o
+.DS_Store
+lancador/lancador.exe
+lancador/lacador.ico.bak
+emulacao/estados.json
+emulacao/emulacao-lacador.html
+emulacao/previa.html

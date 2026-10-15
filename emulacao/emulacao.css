@@ -1,0 +1,43 @@
+
+/* ---------- Ajustes só da emulação (o programa roda numa janela de computador) ----------
+   Layout: a mesma tela do programa; em tela estreita, a barra lateral vira uma faixa no topo. */
+.app { height: 100%; }
+.folha { max-height: calc(100% - 48px); }
+.inicio-quadro { width: min(800px, calc(100% - 32px)); }
+
+@media (max-width: 720px) {
+  .app { flex-direction: column; }
+  .lateral {
+    width: 100%; flex-direction: column; gap: 10px;
+    padding: 12px 16px 10px; overflow: visible;
+    border-right: 0; border-bottom: 1px solid rgba(10, 46, 91, 0.08);
+  }
+  .lateral > .pilula, .lateral > .luz, .busca, .lateral-espaco, .pc, .credito { display: none; }
+  .marca { padding: 0; gap: 10px; }
+  .marca-icone { width: 36px; height: 36px; border-radius: 9px; }
+  .marca-nome { height: 18px; }
+  .nav { flex-direction: row; gap: 6px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px 2px; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-item { width: auto; flex: none; height: 36px; padding: 0 12px; gap: 8px; background: rgba(255, 255, 255, 0.6); }
+  .nav-item .nome { flex: none; }
+  .palco { min-height: 0; }
+  .topo { padding: 16px 16px 12px; gap: 12px; }
+  .topo-titulo h1 { font-size: 26px; }
+  .topo-acoes { flex-wrap: wrap; gap: 8px; }
+  .conteudo { padding: 4px 16px 28px; gap: 16px; }
+  .cartao { padding: 16px; border-radius: 18px; }
+  .cartao-topo { gap: 12px; }
+  .cartao-icone { width: 40px; height: 40px; border-radius: 12px; }
+  .cartao-titulo-linha { flex-wrap: wrap; row-gap: 6px; }
+  .aviso { padding: 12px; gap: 10px; }
+  .folha-fundo { padding: 16px; }
+  .folha { padding: 20px 18px 18px; border-radius: 20px; }
+  .folha-pe { flex-wrap: wrap; }
+  /* Quadro mais alto no celular: a arte corta um pouco dos lados e sobra espaço para o texto abaixo do nome. */
+  .inicio-quadro { aspect-ratio: 6 / 5; padding: 0 14px 8px; border-radius: 14px; }
+  .inicio-sub { font-size: 8px; letter-spacing: .2em; }
+  .inicio-barra { margin-top: 8px; height: 4px; }
+  .inicio-rodape { margin-top: 6px; gap: 6px; font-size: 9px; }
+  .inicio-etapa { font-size: 10px; }
+  .brinde { bottom: 16px; }
+}

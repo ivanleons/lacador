@@ -1,0 +1,127 @@
+{
+  "tutoriais": [
+    {
+      "id": "primeiros-passos",
+      "titulo": "Primeiros passos com o token",
+      "resumo": "O que fazer na primeira vez que você recebe o token.",
+      "icone": "token",
+      "passos": [
+        { "titulo": "Conecte o token", "texto": "Ligue o token direto numa porta USB do computador. Evite extensões e hubs USB." },
+        { "titulo": "Veja se o Laçador reconheceu", "texto": "Na página Tokens, o seu modelo deve aparecer como Conectado. Se aparecer que falta o driver, clique em Instalar.", "acao": { "tipo": "pagina", "pagina": "tokens", "rotulo": "Ir para Tokens" } },
+        { "titulo": "Prepare o sistema que você vai usar", "texto": "Na página Sistemas, clique em Preparar no sistema desejado. O Laçador instala e configura o que estiver faltando.", "acao": { "tipo": "pagina", "pagina": "sistemas", "rotulo": "Ir para Sistemas" } },
+        { "titulo": "Confira a validade do certificado", "texto": "Na página Certificados aparece até quando o seu certificado vale. O Laçador avisa quando o vencimento estiver perto.", "acao": { "tipo": "pagina", "pagina": "certificados", "rotulo": "Ir para Certificados" } }
+      ],
+      "dicas": [
+        "O PIN é a senha do token. Digite com calma: várias tentativas erradas seguidas bloqueiam o token.",
+        "Tire o token do computador quando terminar de usar."
+      ],
+      "fonte": ""
+    },
+    {
+      "id": "sigadaer",
+      "titulo": "Assinar documento no SIGADAER",
+      "resumo": "Assinatura digital pelo Firefox ESR, com a extensão do assinador.",
+      "icone": "caneta",
+      "sistema": "sigadaer",
+      "passos": [
+        { "titulo": "Conecte o token", "texto": "Na página Sistemas, o cartão SIGADAER deve estar como Pronto. Se não estiver, clique em Preparar ou Reparar." },
+        { "titulo": "Abra o SIGADAER no Firefox ESR", "texto": "O SIGADAER abre em qualquer navegador, mas a assinatura só funciona sem erro no Firefox ESR.", "acao": { "tipo": "abrir-site", "sistema": "sigadaer", "rotulo": "Abrir o SIGADAER" } },
+        { "titulo": "Confira o gládio alado", "texto": "No canto superior direito do Firefox, clique no ícone do gládio alado (a extensão do assinador). No quadro “Status da instalação de componentes” tem que aparecer ASSINADOR DISPONÍVEL." },
+        { "titulo": "Confira o método de acesso ao token", "texto": "Na mesma página, deixe marcado o Método Alfa. Se o token não for reconhecido na hora de assinar, troque para o Método Bravo. A ajuda do CCA-SJ indica o Bravo para o token GD Burti." },
+        { "titulo": "Assine", "texto": "No SIGADAER, mande assinar o documento. Quando a janela do assinador aparecer com o seu nome, digite o PIN do token." }
+      ],
+      "dicas": [
+        "Se aparecer ASSINADOR NÃO DISPONÍVEL: no Laçador, abra Programas, clique em Reparar no Assinador do COMAER e depois feche e abra o Firefox.",
+        "Se o SIGADAER pedir para reinserir o token ao assinar muitos anexos, assine 1 ou 2 documentos de cada vez.",
+        "O CCA-SJ orienta não instalar o assinador em computador que já usa smartcard para acesso remoto à INTRAER, por incompatibilidade entre os dois."
+      ],
+      "fonte": "Procedimento ATIC “Instalação do Assinador Digital COMAER” (rev. 02, 11/09/2023), ajuda do Assinador Digital CCA-SJ v2.0.12 e observações da ATIC."
+    },
+    {
+      "id": "assinar-pdf",
+      "titulo": "Assinar um PDF com o Assinador do COMAER",
+      "resumo": "Assina qualquer arquivo PDF direto no programa, sem navegador.",
+      "icone": "documento",
+      "sistema": "assinar-pdf",
+      "passos": [
+        { "titulo": "Conecte o token", "texto": "Espere alguns segundos para o Windows reconhecer." },
+        { "titulo": "Abra o Assinador Digital do COMAER", "texto": "Use o atalho da Área de Trabalho ou o botão abaixo. Primeiro abre uma janela preta por alguns segundos; depois aparece a tela do assinador. Não feche a janela preta.", "acao": { "tipo": "abrir-programa", "alvo": "assinador", "rotulo": "Abrir o Assinador" } },
+        { "titulo": "Escolha o arquivo", "texto": "Clique em “Selecionar arquivo…” e escolha o PDF." },
+        { "titulo": "Digite o PIN", "texto": "Se aparecer o seu nome pedindo o PIN, a instalação está funcionando. Digite o PIN e siga a tela para concluir." }
+      ],
+      "dicas": [
+        "Se o programa abrir e fechar na hora, clique em Reparar no Assinador do COMAER, na página Programas."
+      ],
+      "fonte": "Procedimento ATIC “Instalação do Assinador Digital COMAER” (rev. 02, 11/09/2023)."
+    },
+    {
+      "id": "siafi",
+      "titulo": "Acessar o SIAFI Web e a tela preta",
+      "resumo": "Entrada com o certificado do token e abertura do SIAFI Operacional.",
+      "icone": "terminal",
+      "sistema": "siafi",
+      "passos": [
+        { "titulo": "Conecte o token", "texto": "O login do gov.br para o SIAFI Web é feito com o certificado do token." },
+        { "titulo": "Abra o SIAFI Web", "texto": "Use um navegador atualizado (Chrome, Edge ou Opera) e entre com o seu certificado digital.", "acao": { "tipo": "abrir-site", "sistema": "siafi", "rotulo": "Abrir o SIAFI" } },
+        { "titulo": "Entre no SIAFI Operacional", "texto": "Dentro do SIAFI Web, clique na opção para entrar no SIAFI Operacional. O site mostra um código e baixa um arquivo do Java. Guarde o código." },
+        { "titulo": "Abra o arquivo do Java", "texto": "Abra o arquivo baixado. Se o Windows perguntar com qual programa abrir, escolha “Abrir com” e aponte para C:\\Program Files (x86)\\Java\\jre1.8.0_91\\bin\\javaws.exe. O Laçador já deixa esse tipo de arquivo ligado a esse Java." },
+        { "titulo": "Use a tela preta", "texto": "Quando a tela preta abrir, informe o código que o site mostrou, se ele for pedido." }
+      ],
+      "dicas": [
+        "Na rede da FAB, o proxy do computador precisa estar definido como proxy.exemplo.intranet para a tela preta funcionar. A página Diagnóstico mostra o proxy atual.",
+        "O SIAFI pede o Java 8 Update 91. Não aceite ofertas para atualizar o Java."
+      ],
+      "fonte": "Passo a passo da ATIC “abrir o SIAFI tela preta” e observações da ATIC."
+    },
+    {
+      "id": "compras",
+      "titulo": "Entrar no Compras.gov.br com o token",
+      "resumo": "Acesso pelo gov.br usando o certificado digital.",
+      "icone": "carrinho",
+      "sistema": "compras",
+      "passos": [
+        { "titulo": "Conecte o token", "texto": "Confira na página Tokens se ele aparece como Conectado." },
+        { "titulo": "Abra o Compras.gov.br", "texto": "Use um navegador atualizado (Chrome, Edge ou Opera).", "acao": { "tipo": "abrir-site", "sistema": "compras", "rotulo": "Abrir o Compras.gov.br" } },
+        { "titulo": "Entre com o certificado", "texto": "Na tela de acesso do gov.br, escolha a opção de entrar com certificado digital, selecione o seu certificado na lista e digite o PIN do token." }
+      ],
+      "dicas": [
+        "Se o navegador não mostrar o seu certificado na lista, feche o navegador, tire e coloque o token e tente de novo. Se continuar, use Reparar no token."
+      ],
+      "fonte": "Passo a passo e observações da ATIC."
+    },
+    {
+      "id": "adobe",
+      "titulo": "Assinar um PDF dentro do Adobe Reader",
+      "resumo": "Assinatura visível no documento, pelo Adobe Reader XI.",
+      "icone": "selo",
+      "sistema": "adobe",
+      "passos": [
+        { "titulo": "Abra o PDF no Adobe Reader XI", "texto": "Conecte o token antes.", "acao": { "tipo": "abrir-programa", "alvo": "adobe-xi", "rotulo": "Abrir o Adobe Reader" } },
+        { "titulo": "Preencher e assinar", "texto": "No canto direito, clique em “Preencher e assinar”." },
+        { "titulo": "Usar um certificado", "texto": "Clique em “Assinar”, depois em “Usar um certificado” e em “Próximo”." },
+        { "titulo": "Marque o lugar da assinatura", "texto": "Clique em “Arrastar novo Retângulo de assinatura...” e desenhe, no documento, o retângulo onde a assinatura vai ficar." },
+        { "titulo": "Assine", "texto": "Clique em “Assinar”, salve o arquivo PDF quando for pedido e digite o PIN do token. Confira se a assinatura apareceu no documento." }
+      ],
+      "dicas": [
+        "O procedimento da ATIC manda desinstalar qualquer outro Adobe Reader antes de instalar o Reader XI.",
+        "O Adobe Reader XI é uma versão antiga, sem atualizações de segurança. Use só para assinar e evite abrir nele PDFs de origem desconhecida."
+      ],
+      "fonte": "Procedimento ATIC “Instalação do Assinador Digital COMAER” (rev. 02, 11/09/2023)."
+    },
+    {
+      "id": "problemas",
+      "titulo": "Problemas comuns",
+      "resumo": "O que fazer quando algo para de funcionar.",
+      "icone": "ajuda",
+      "passos": [
+        { "titulo": "O assinador abre e fecha na hora, ou o Firefox mostra ASSINADOR NÃO DISPONÍVEL", "texto": "As atualizações do Windows 11 removeram um componente (WMIC) que o assinador usava. Na página Programas, clique em Reparar no Assinador do COMAER. Depois feche e abra o Firefox.", "acao": { "tipo": "pagina", "pagina": "programas", "rotulo": "Ir para Programas" } },
+        { "titulo": "O token não aparece como conectado", "texto": "Troque de porta USB, sem hub nem extensão. Se continuar, clique em Reparar no cartão do token, na página Tokens. Reiniciar o computador também ajuda.", "acao": { "tipo": "pagina", "pagina": "tokens", "rotulo": "Ir para Tokens" } },
+        { "titulo": "O PIN foi bloqueado ou esquecido", "texto": "O Laçador não desbloqueia PIN. Procure o setor que entregou o token." },
+        { "titulo": "O certificado venceu", "texto": "O Laçador avisa antes, mas a renovação é feita pelo setor responsável pelos certificados. Depois de renovar, clique em Verificar tudo." },
+        { "titulo": "Nada disso resolveu", "texto": "Na página Diagnóstico, clique em “Gerar relatório para o suporte” e envie o arquivo para a ATIC.", "acao": { "tipo": "pagina", "pagina": "diagnostico", "rotulo": "Ir para Diagnóstico" } }
+      ],
+      "dicas": [],
+      "fonte": ""
+    }
+  ]
+}

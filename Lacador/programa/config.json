@@ -1,0 +1,28 @@
+{
+  "organizacao": "Base Aérea de Canoas",
+  "suporte": {
+    "nome": "ATIC",
+    "contato": ""
+  },
+  "pastaPacotes": "",
+  "proxy": {
+    "servidor": "proxy.exemplo.intranet",
+    "porta": 0,
+    "excecoes": "<local>"
+  },
+  "sites": {
+    "sigadaer": "http://sigadaer.exemplo.intranet/",
+    "siafi": "https://siafi.tesouro.gov.br/senha/public/pages/security/login.jsf",
+    "compras": "https://www.gov.br/compras/pt-br"
+  },
+  "firefox": {
+    "modoInstalacaoExtensao": "force_installed",
+    "aplicarPreferenciasProcedimentoAtic": false
+  },
+  "certificados": {
+    "avisarDiasAntes": 30
+  },
+  "interface": {
+    "navegador": "auto"
+  }
+}

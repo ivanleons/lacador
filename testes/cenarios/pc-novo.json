@@ -1,0 +1,148 @@
+{
+ "coletadoEm": "2026-10-06T12:00:00",
+ "computador": "PC-TESTE",
+ "usuario": "usuario",
+ "dominio": "PC-TESTE",
+ "admin": false,
+ "windows": {
+  "nome": "Windows 11 Home Single Language",
+  "versao": "25H2",
+  "build": "26200.9457",
+  "arquitetura": "x64"
+ },
+ "programas": [],
+ "arquivos": {
+  "%SystemRoot%\\System32\\aetpkss1.dll": false,
+  "%SystemRoot%\\System32\\DXSafePKCS11.dll": false
+ },
+ "servicos": {
+  "SCardSvr": {
+   "estado": "Stopped",
+   "inicio": "Manual"
+  },
+  "CertPropSvc": {
+   "estado": "Running",
+   "inicio": "Automatic"
+  }
+ },
+ "dispositivos": [
+  {
+   "nome": "Microsoft Usbccid Smartcard Reader (WUDF)",
+   "id": "USB\\VID_0000&PID_0000\\5&1A2B",
+   "classe": "SmartCardReader",
+   "status": "OK"
+  }
+ ],
+ "certificados": [],
+ "assinador": {
+  "pasta": "",
+  "jar": false,
+  "bats": [],
+  "ligacao64": "",
+  "ligacao32": "",
+  "manifesto": false,
+  "atalho": false,
+  "configUsuario": {
+   "existe": false,
+   "tokens": []
+  }
+ },
+ "firefox": {
+  "instalacoes": [
+   {
+    "pasta": "C:\\Program Files\\Mozilla Firefox",
+    "exe": "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+    "versao": "143.0",
+    "canal": "release",
+    "arquitetura": "x64"
+   }
+  ],
+  "politica": {
+   "origem": "",
+   "modo": "",
+   "url": "",
+   "assinaturaFraca": false,
+   "arquivoExiste": false,
+   "prefsAtic": false
+  },
+  "perfis": []
+ },
+ "java": {
+  "jres": [],
+  "jnlpComando": "",
+  "jnlpEscolhaUsuario": "",
+  "atualizacaoDesativada": false
+ },
+ "proxy": {
+  "ativo": false,
+  "servidor": "",
+  "pac": "",
+  "excecoes": ""
+ },
+ "wmic": {
+  "x64": false,
+  "x86": false
+ },
+ "pastaPacotes": "E:\\Lacador\\pacotes",
+ "pacotes": {
+  "1.SafeSignIC3097-x64-win-admin.exe": {
+   "existe": true,
+   "tamanho": 10431872
+  },
+  "1.SafeSignIC3097-x86-win-admin.exe": {
+   "existe": true,
+   "tamanho": 7100488
+  },
+  "2.GDsetupStarsignCUTx64.exe": {
+   "existe": true,
+   "tamanho": 4663863
+  },
+  "2.GDsetupStarsignCUTx32.exe": {
+   "existe": true,
+   "tamanho": 4663863
+  },
+  "Instalador DXSafe Middleware - 1.0.30.exe": {
+   "existe": true,
+   "tamanho": 17599077
+  },
+  "Java1.7_51.exe": {
+   "existe": true,
+   "tamanho": 29141928
+  },
+  "jre-8u91-windows-i586.exe": {
+   "existe": true,
+   "tamanho": 51071552
+  },
+  "assinador_setup.exe": {
+   "existe": true,
+   "tamanho": 105901052
+  },
+  "Firefox Setup 140.17.0esr.exe": {
+   "existe": true,
+   "tamanho": 73411008
+  },
+  "assinador_digital_comaer-2.0.12-an+fx.xpi": {
+   "existe": true,
+   "tamanho": 848790
+  },
+  "AdbeRdr11000_pt_BR_INSTALADOR.exe": {
+   "existe": true,
+   "tamanho": 38958736
+  },
+  "AdbeRdrUpd11023_UPDATE.msp": {
+   "existe": true,
+   "tamanho": 48394240
+  }
+ },
+ "navegadores": {
+  "edge": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "chrome": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+ },
+ "agente": {
+  "tarefa": false,
+  "instalado": false,
+  "pasta": "",
+  "versao": ""
+ },
+ "erros": []
+}

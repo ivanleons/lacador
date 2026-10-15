@@ -1,0 +1,66 @@
+// Página Acesso na demonstração: liberar o computador, conferir os textos e remover a liberação.
+const { chromium } = require('playwright');
+const [url, dir] = process.argv.slice(2);
+const erros = [];
+const ok = (c, m) => { console.log((c ? 'OK   ' : 'FALHA') + ' ' + m); if (!c) erros.push(m); };
+(async () => {
+  const b = await chromium.launch({ args: ['--no-sandbox'] });
+  const p = await (await b.newContext({ viewport: { width: 1280, height: 860 } })).newPage();
+  p.on('console', m => { if (m.type() === 'error') erros.push('[console] ' + m.text()); });
+  p.on('pageerror', e => erros.push('[pageerror] ' + e.message));
+  p.on('response', r => { if (r.status() >= 400) erros.push('[http ' + r.status() + '] ' + r.url()); });
+  await p.goto(url);
+  await p.waitForSelector('#app:not([hidden])', { timeout: 20000 });
+  await p.locator('.nav-item', { hasText: 'Sistemas' }).click();   // a tela abre no Início
+  await p.waitForTimeout(400);
+  await p.waitForTimeout(900);
+  const cartao = n => p.locator('.cartao', { has: p.locator('h2', { hasText: new RegExp('^' + n) }) }).first();
+  ok(await p.locator('.aviso', { hasText: 'Este usuário não é administrador' }).count() === 1, 'Sistemas avisa que o usuário não é administrador');
+  // confirmação de instalação para usuário comum
+  await cartao('SIAFI').locator('button', { hasText: 'Preparar' }).click();
+  await p.waitForSelector('#folha .folha-lista');
+  await p.locator('#folha button', { hasText: 'Cancelar' }).click();
+  await p.locator('.aviso', { hasText: 'Este usuário não é administrador' }).locator('button', { hasText: 'Ver' }).click();
+  await p.waitForTimeout(500);
+  ok((await p.locator('#titulo').innerText()) === 'Acesso', 'o aviso leva para a página Acesso');
+  ok((await cartao('Instalar sem administrador').locator('.selo').innerText()).trim() === 'Não liberado', 'computador começa como Não liberado');
+  ok((await cartao('Quem está usando').locator('.selo').innerText()).trim() === 'Usuário comum', 'mostra Usuário comum');
+  await p.mouse.move(900, 400); await p.waitForTimeout(500);
+  await p.screenshot({ path: dir + '/30-acesso-antes.png' });
+  await cartao('Instalar sem administrador').locator('button', { hasText: 'Liberar este computador' }).click();
+  await p.waitForSelector('#folha .folha-lista');
+  await p.waitForTimeout(350);
+  await p.screenshot({ path: dir + '/31-acesso-confirmar.png' });
+  await p.locator('#folha button', { hasText: /^Liberar$/ }).click();
+  await p.waitForTimeout(900);
+  ok((await p.locator('#folha h2').innerText()) === 'Liberando este computador...', 'mostra o andamento da liberação');
+  await p.waitForSelector('#folha button:has-text("Fechar")', { timeout: 20000 });
+  ok((await p.locator('#folha h2').innerText()) === 'Computador liberado', 'termina em Computador liberado');
+  await p.screenshot({ path: dir + '/32-acesso-liberado-folha.png' });
+  await p.locator('#folha button', { hasText: 'Fechar' }).click();
+  await p.waitForTimeout(2600);
+  ok(await p.locator('#folha-fundo').isHidden(), 'a folha não reabre depois de fechada');
+  ok((await cartao('Instalar sem administrador').locator('.selo').innerText()).trim() === 'Liberado', 'cartão passa a Liberado');
+  await p.screenshot({ path: dir + '/33-acesso-depois.png' });
+  await p.click('#nav [data-pagina="sistemas"]'); await p.waitForTimeout(500);
+  ok(await p.locator('.aviso', { hasText: 'Este usuário não é administrador' }).count() === 0, 'o aviso some depois de liberar');
+  await cartao('SIAFI').locator('button', { hasText: 'Preparar' }).click();
+  await p.waitForSelector('#folha .folha-lista');
+  await p.locator('#folha button', { hasText: 'Cancelar' }).click();
+  // remover
+  await p.click('#nav [data-pagina="acesso"]'); await p.waitForTimeout(400);
+  await cartao('Instalar sem administrador').locator('button', { hasText: 'Remover a liberação' }).click();
+  await p.waitForSelector('#folha .folha-lista');
+  await p.locator('#folha button', { hasText: /^Remover$/ }).click();
+  await p.waitForSelector('#folha button:has-text("Fechar")', { timeout: 20000 });
+  ok((await p.locator('#folha h2').innerText()) === 'Liberação removida', 'remoção termina em Liberação removida');
+  await p.locator('#folha button', { hasText: 'Fechar' }).click();
+  await p.waitForTimeout(2600);
+  ok((await cartao('Instalar sem administrador').locator('.selo').innerText()).trim() === 'Não liberado', 'volta a Não liberado');
+  await p.click('#nav [data-pagina="diagnostico"]'); await p.waitForTimeout(800);
+  ok((await cartao('Instaladores').locator('p').first().innerText()) === 'Dentro do Lacador.exe', 'Diagnóstico mostra os instaladores dentro do Lacador.exe');
+  await p.screenshot({ path: dir + '/34-diagnostico.png' });
+  console.log('ERROS ' + erros.length); erros.forEach(e => console.log('  ' + e));
+  await b.close();
+  process.exit(erros.length ? 1 : 0);
+})().catch(e => { console.error('FALHA GERAL', e.message); process.exit(1); });

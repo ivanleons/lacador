@@ -1,0 +1,203 @@
+===============================================================================
+  LAÇADOR - Sistema de Gerenciamento de Tokens                         v1.2.0
+  Criado por 3S Leon, S2 Dalssasso - ATIC - Base Aérea de Canoas
+===============================================================================
+
+O QUE É
+  Um único arquivo, o Lacador.exe. Ele mostra, para cada sistema (SIGADAER,
+  assinar PDF, SIAFI, Compras.gov.br, Adobe), se o computador está pronto para
+  usar o token, e instala ou repara o que falta com um clique. Todos os
+  instaladores vão dentro dele: drivers dos tokens, Assinador do COMAER,
+  Firefox ESR e a extensão, Java 8 e 7, Adobe Reader XI.
+
+  Não precisa instalar nada para abrir: dois cliques no Lacador.exe, de
+  qualquer lugar (pendrive, Área de Trabalho, pasta de rede).
+  Funciona em Windows 10 e 11 de 64 bits.
+
+  Ao abrir, aparece a tela de abertura enquanto o Laçador confere o
+  computador. Depois abre a tela INÍCIO: chama a pessoa pelo nome do
+  Windows, mostra a situação (token, certificado, sistemas, Firefox), os
+  avisos (cada um fecha no X) e pergunta "O que você precisa hoje?". Cada
+  opção responde como um assistente e oferece o próximo passo.
+
+  Em cada programa: Instalar quando falta; Abrir quando já existe; e a
+  engrenagem (mais opções) com Reparar e Desinstalar.
+
+  FIREFOX: o padrão da base é o Firefox Developer Edition. O ESR é a reserva,
+  para quando o SIGADAER não funciona no Developer. O Laçador mostra qual dos
+  dois está instalado, abre o Developer primeiro e, na engrenagem do Firefox,
+  oferece "Instalar o ESR (reserva)".
+  EXTENSÃO DO ASSINADOR: é obrigatório estar no Firefox e com o botão fixado
+  na barra. O Laçador instala pela política do Firefox já pedindo o botão na
+  barra e confere os dois. Se o botão estiver escondido no menu de extensões
+  (a peça de quebra-cabeça), o botão "Fixar na barra" resolve (o Firefox
+  precisa ser fechado; ele pergunta antes).
+
+
+SE O SEU LACADOR.EXE FOR O PEQUENO (1 MB)
+  O Laçador completo tem uns 375 MB, porque leva os instaladores dentro.
+  Existe também uma versão pequena, só com o programa. Ela verifica e repara,
+  mas não instala. Para transformar a pequena na completa:
+    Lacador.exe /montar -Origem "D:\TOKENS.rar"
+  ou página Diagnóstico > "Montar o Laçador completo". Ele confere os 12
+  instaladores pelo SHA-256 e cria, ao lado, o Lacador-completo.exe.
+
+
+COMO USAR
+
+  Computador pessoal (chefes, casa) ou atendimento com pendrive
+    Abra o Lacador.exe. Na hora de instalar ou reparar, o Windows mostra a
+    janela de permissão. Clique em "Sim". Nada do Laçador fica instalado.
+
+  Computador da base, usuário sem senha de administrador
+    Abra o Lacador.exe, vá na página ACESSO e clique em
+    "Liberar este computador". O Windows pede a senha de administrador UMA
+    vez (é o suporte que digita). A partir daí qualquer usuário daquele
+    computador instala e repara pelo Laçador com um clique, sem senha.
+    A liberação:
+      - copia o Laçador para  C:\Program Files\Lacador
+      - cria o atalho "Laçador" no Menu Iniciar e na Área de Trabalho
+      - cria a tarefa "Lacador-Agente" (conta SYSTEM, só roda sob demanda)
+    Para desfazer: página Acesso > "Remover a liberação".
+
+  Ver as telas sem mexer em nada
+    Atalho para o Lacador.exe com  -Demo  no fim do destino, ou pelo Executar:
+      Lacador.exe -Demo
+
+
+PARA QUEM ADMINISTRA A GPO (linha de comando)
+  O mesmo Lacador.exe aceita comandos. Rodando como SYSTEM ou administrador:
+
+    Lacador.exe /instalar -Silencioso
+        libera o computador sem perguntar nada (igual ao botão da página
+        Acesso). Pode rodar em toda inicialização: se já está liberado e
+        igual, sai em segundos; se o .exe da rede mudou, atualiza.
+
+    Lacador.exe /instalar -Silencioso -Preparar sigadaer -SomenteReparar
+        além de liberar, conserta o Assinador do COMAER onde ele já existe
+        (substitui o pacote CorrecaoAssinador-GPO).
+
+    Lacador.exe /instalar -Silencioso -Preparar sigadaer -Token gd-starsign
+        já deixa o SIGADAER pronto: driver, assinador, Firefox ESR e extensão.
+
+    Lacador.exe /instalar -Desinstalar
+        remove a liberação.
+
+    Lacador.exe /agente -Preparar sigadaer,siafi -Token todos -Simular
+        instala/repara sem tela. -Simular só mostra o que seria feito.
+
+  Use sempre o Lacador completo (com os instaladores) nesses comandos.
+
+  Sistemas: sigadaer, assinar-pdf, siafi, compras, adobe
+  Tokens:   gd-starsign, dexon-dxtoken, todos
+  O lançador espera o comando terminar e devolve o código de saída:
+  0 = tudo certo, 1 = ficou pendência, 2 = sem administrador.
+
+  Script de inicialização do computador (GPO), exemplo:
+    start "" /wait "\\SERVIDOR\COMPARTILHAMENTO\Lacador.exe" /instalar -Silencioso
+  O compartilhamento precisa de leitura para "Computadores do domínio".
+  Teste primeiro numa UO pequena.
+
+  Se a base tiver GPO que force a política de execução do PowerShell
+  (AllSigned, por exemplo), os scripts do Laçador precisam ser liberados nela.
+
+
+ANTIVÍRUS E AVISOS DO WINDOWS
+  O Lacador.exe não tem assinatura digital. Por isso:
+    - no primeiro uso, o Windows pode mostrar "O Windows protegeu o
+      computador": clique em "Mais informações" > "Executar assim mesmo";
+    - o Kaspersky pode desconfiar, porque o programa extrai arquivos e chama o
+      PowerShell. Se bloquear, inclua o Lacador.exe nas aplicações confiáveis.
+  O Laçador completo tem uns 375 MB: a primeira abertura pode demorar alguns
+  segundos enquanto o antivírus confere.
+
+
+AJUSTES DA BASE SEM MEXER NO EXECUTÁVEL
+  Crie um arquivo  Lacador.config.json  ao lado do Lacador.exe, só com o que
+  quer mudar. Exemplo:
+
+    {
+      "suporte": { "contato": "ramal 0000" },
+      "proxy":   { "porta": 3128 },
+      "sites":   { "sigadaer": "http://endereco.do.sigadaer/" }
+    }
+
+  "proxy.porta"   enquanto for 0, o Laçador só mostra o proxy; com a porta,
+                  ganha o botão "Aplicar o proxy" (página Diagnóstico)
+  "sites"         endereços do SIGADAER, SIAFI e Compras.gov.br
+  "certificados": { "avisarDiasAntes": 30 }
+  "interface":    { "navegador": "auto" }     auto, edge, chrome ou padrao
+  Ao liberar um computador, esse arquivo é copiado junto.
+
+
+O QUE O LAÇADOR INSTALA E CONFIGURA
+  Token GD Burti (StarSign CUT)  SafeSign 3.0.97 + driver StarSign CUT 1.7.17
+  Token DXToken (Dexon)          DXSafe Middleware 1.0.30
+  Assinador do COMAER 2.0.12     instala, aplica a correção do WMIC (Windows 11)
+                                 e refaz a ligação com o Firefox
+  Firefox ESR 140.17.0           se já existe um Firefox comum, o ESR vai para
+                                 uma pasta separada
+  Extensão do assinador 2.0.12   instalada por política do Firefox (não precisa
+                                 arrastar o .xpi nem desligar a checagem de
+                                 assinatura do Firefox inteiro)
+  Java 8 Update 91 (32 bits)     desliga a atualização automática e liga os
+                                 arquivos .jnlp ao javaws desse Java (SIAFI)
+  Java 7 Update 51               opcional, em "Só para quem precisa"
+  Adobe Reader XI 11.0.23        opcional
+  Serviço de cartão inteligente  confere e liga, se estiver desligado
+
+  Por usuário (sem administrador): proxy, abrir os sites, instalar certificado
+  em arquivo (.pfx), ajuste do DXToken no assinador (Método Alfa), relatório.
+
+
+SEGURANÇA
+  - A tela conversa só com o próprio computador (127.0.0.1), com uma chave
+    sorteada a cada abertura. Nada sai para a rede.
+  - Num computador liberado, o usuário comum só consegue pedir itens do
+    catálogo. Ele não envia caminho nem comando ao agente, e o catálogo fica
+    em C:\Program Files (só administrador altera).
+  - Cada instalador é copiado para uma pasta protegida e conferido pelo
+    SHA-256 antes de rodar. Arquivo trocado ou corrompido não é executado.
+  - Java 7u51, Java 8u91 e Adobe Reader XI são versões antigas, sem correção
+    de segurança. O Laçador instala porque os sistemas exigem, mas marca como
+    "versão antiga". Instale só em quem precisa, principalmente em computador
+    pessoal.
+
+
+REGISTROS (para o suporte)
+  Tela, por usuário:       %LOCALAPPDATA%\Lacador\lacador.log
+  Agente (instalações):    C:\ProgramData\Lacador\logs\agente.log
+  Liberação do computador: C:\ProgramData\Lacador\logs\instalacao.log
+  Relatório completo:      página Diagnóstico > "Gerar relatório para o suporte"
+                           (arquivo lacador-relatorio.txt na Área de Trabalho)
+  Ao abrir, o Lacador.exe extrai o programa (não os instaladores) em
+  %LOCALAPPDATA%\Lacador\app.
+
+
+O QUE JÁ FOI TESTADO E O QUE NÃO FOI
+  Testado:
+    - a correção do WMIC, aplicada aos .bat originais do assinador (é a mesma
+      que resolveu o notebook de um usuário);
+    - o cálculo do estado, o plano de instalação e a validação dos pedidos
+      (verificações automáticas);
+    - todas as telas e fluxos, em modo de demonstração;
+    - o Lacador.exe num emulador de Windows (Wine): extração do programa,
+      montagem do comando e os modos /instalar, /agente e /montar;
+    - a montagem do Lacador completo com o TOKENS.rar real, e a leitura dos
+      12 instaladores de dentro dele, conferidos um por um pelo SHA-256;
+    - num Windows 11 de verdade (07/10/2026): o Lacador.exe abre, extrai o
+      programa, o PowerShell do Windows sobe e a janela aparece. Esse teste
+      achou um defeito que travava a tela de abertura na versão 1.1.0,
+      corrigido na 1.1.1;
+    - num Windows 11 de verdade (14/10/2026), versão 1.1.1: abriu e leu o
+      computador. Achou que o SafeSign "constava como instalado, mas faltava
+      um arquivo" e não reinstalava: corrigido na 1.2.0 (reinstala por cima
+      e, se precisar, remove e instala do zero).
+  AINDA NÃO testado num Windows de verdade:
+    - a tela de abertura própria (1.2.0) e a tela Início;
+    - a reinstalação forçada do SafeSign, a desinstalação e o "Fixar na barra";
+    - as instalações silenciosas de cada programa;
+    - a instalação da extensão pela política do Firefox;
+    - a liberação do computador (tarefa agendada e permissão do usuário comum).
+  Por isso: primeiro num computador de teste. Só depois nos chefes e na GPO.
+===============================================================================
